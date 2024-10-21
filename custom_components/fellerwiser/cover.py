@@ -114,7 +114,7 @@ class FellerCover(CoverEntity):
 
     @property
     def unique_id(self):
-        return "cover-" + self._id + self.host
+        return "cover-" + self._id
 
     @property
     def current_cover_position(self):

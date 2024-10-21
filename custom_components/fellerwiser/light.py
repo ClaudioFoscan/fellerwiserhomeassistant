@@ -169,7 +169,7 @@ class FellerLight(LightEntity):
 
     @property
     def unique_id(self):
-        return "light-" + self._id + self.host
+        return "light-" + self._id
 
 
     @property
