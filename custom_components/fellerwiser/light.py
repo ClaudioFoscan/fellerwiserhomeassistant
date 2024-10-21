@@ -110,7 +110,7 @@ async def hello(lights, hass, host, apikey):
                 doUpdate = True
             if doUpdate:
                 for l in lights:
-                    if l.unique_id == "light-"+str(data["load"]["id"]):
+                    if l.unique_id == "light-"+str(data["load"]["id"])+str(host):
                         _LOGGER.info("found entity to update")
                         l.updateExternal(data["load"]["state"]["bri"])
 
@@ -169,7 +169,7 @@ class FellerLight(LightEntity):
 
     @property
     def unique_id(self):
-        return "light-" + self._id
+        return "light-" + self._id + self._name
 
 
     @property

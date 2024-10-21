@@ -1,6 +1,6 @@
 {
   "domain": "fellerwiser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "name": "Feller Wiser",
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/fellerwiser",
@@ -10,7 +10,8 @@
   "homekit": {},
   "dependencies": [],
   "codeowners": [
-    "@machgo"
+    "@machgo",
+	"@claudio"
   ],
   "iot_class": "local_push"
 }
