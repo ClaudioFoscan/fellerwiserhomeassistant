@@ -71,7 +71,7 @@ async def hello(lights, hass, host, apikey):
                         doUpdate = True
                     if doUpdate:
                         for l in lights:
-                            if l.unique_id == "light-"+str(data["load"]["id"])+str(host):
+                            if l.unique_id == "light-"+str(data["load"]["id"]):
                                 _LOGGER.info("found entity to update")
                                 l.updateExternal(data["load"]["state"]["bri"])
         except socket.gaierror:
@@ -110,7 +110,7 @@ async def hello(lights, hass, host, apikey):
                 doUpdate = True
             if doUpdate:
                 for l in lights:
-                    if l.unique_id == "light-"+str(data["load"]["id"])+ str(self._host):
+                    if l.unique_id == "light_a-"+str(data["load"]["id"]):
                         _LOGGER.info("found entity to update")
                         l.updateExternal(data["load"]["state"]["bri"])
 
@@ -169,7 +169,7 @@ class FellerLight(LightEntity):
 
     @property
     def unique_id(self):
-        return "light-" + self._id + str(self._host)
+        return "light_a-" + self._id
 
 
     @property
