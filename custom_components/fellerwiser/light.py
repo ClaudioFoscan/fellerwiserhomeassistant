@@ -110,7 +110,7 @@ async def hello(lights, hass, host, apikey):
                 doUpdate = True
             if doUpdate:
                 for l in lights:
-                    if l.unique_id == "light_a-"+str(data["load"]["id"]):
+                    if l.unique_id == "light-"+str(data["load"]["id"]):
                         _LOGGER.info("found entity to update")
                         l.updateExternal(data["load"]["state"]["bri"])
 
@@ -133,6 +133,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     response = await hass.async_add_executor_job(updatedata, host, apikey)
 
     loads = response.json()
+    _LOGGER.info(loads)
 
     lights= []
     for value in loads["data"]:
@@ -169,7 +170,7 @@ class FellerLight(LightEntity):
 
     @property
     def unique_id(self):
-        return "light_a-" + self._id
+        return "light-" + self._id
 
 
     @property
