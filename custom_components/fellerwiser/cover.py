@@ -51,7 +51,7 @@ async def hello(covers, hass, host, apikey):
                     _LOGGER.info('Server said > {}'.format(result))
                     data = json.loads(result)     
                     for l in covers:
-                        if l.unique_id == "cover-"+str(data["load"]["id"]):
+                        if l.unique_id == "cover-"+str(data["load"]["id"]+str(host)):
                             _LOGGER.info("found entity to update")
                             l.updateExternal(data["load"]["state"]["level"], data["load"]["state"]["moving"])
         except socket.gaierror:

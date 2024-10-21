@@ -71,7 +71,7 @@ async def hello(lights, hass, host, apikey):
                         doUpdate = True
                     if doUpdate:
                         for l in lights:
-                            if l.unique_id == "light-"+str(data["load"]["id"]):
+                            if l.unique_id == "light-"+str(data["load"]["id"]+str(host)):
                                 _LOGGER.info("found entity to update")
                                 l.updateExternal(data["load"]["state"]["bri"])
         except socket.gaierror:
