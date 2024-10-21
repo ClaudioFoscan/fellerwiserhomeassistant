@@ -51,7 +51,7 @@ async def hello(covers, hass, host, apikey):
                     _LOGGER.info('Server said > {}'.format(result))
                     data = json.loads(result)     
                     for l in covers:
-                        if l.unique_id == "cover-"+str(data["load"]["id"]+str(host)):
+                        if l.unique_id == "cover-"+str(data["load"]["id"])+str(host):
                             _LOGGER.info("found entity to update")
                             l.updateExternal(data["load"]["state"]["level"], data["load"]["state"]["moving"])
         except socket.gaierror:
@@ -114,7 +114,7 @@ class FellerCover(CoverEntity):
 
     @property
     def unique_id(self):
-        return "cover-" + self._id
+        return "cover-" + self._id + self.host
 
     @property
     def current_cover_position(self):
